@@ -1,0 +1,32 @@
+.products {
+    display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: auto;
+  padding: 50px;
+  padding-left: 120px;
+}
+
+.image{
+    width: 100%;
+    height: 250px;
+  object-fit: cover;
+
+}
+/* .product-card > h2,p{
+    padding: 10px;
+} */
+.order-button{
+    background-color: blue;
+    color: #fff;
+    padding: 10px ;
+}
+
+.order-button:hover{
+    background-color: rgb(54, 54, 158);
+}
+
+.heading{
+  margin-left: 50px;
+  margin-top: 15px;
+}

@@ -1,0 +1,107 @@
+.footer{
+    background-color: black;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+.copyright > p{
+    font-size: 25px;
+}
+
+.social-network{
+    display: flex;
+    gap: 15px;
+}
+
+.messenger,.whatsapp,.instagram{
+  cursor: pointer;
+}
+
+.messenger:hover{
+    color: blue;
+}
+
+.whatsapp:hover{
+    color: blue;
+}
+.instagram:hover{
+  color: blue;
+}
+
+@media (max-width:480px){
+    .footer{
+        background-color: black;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+    }  
+    .copyright > p{
+        font-size: 21px;
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        margin: 0px 30px;
+    }
+    .main-div{
+        display: none;
+    flex-direction: column;
+    align-self: auto;
+    padding: 5px;
+    background-color: black;
+    }
+    .main-div > .description > h3{
+        font-size: 22px;
+    }
+    .products {
+        display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin: auto;
+      padding: 50px;
+      padding-left: 90px;
+    }.heading{
+        margin-left: 90px;
+        margin-top: 45px;
+        font-size: 25px;
+      }
+    .card-container{
+        display: flex;
+        flex-direction: row;
+        margin: 25px;
+    }  
+    .cart-card {
+        border: 1px solid #ddd;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        border-radius: 8px;
+        padding: 35px;
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+      }
+      .cart-quantity button {
+        font-size: 13px;
+        padding: 2px 5px;
+        width: 20px;
+        height: 25px ;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: #fff;
+      }
+      .cart-quantity {
+        display: flex;
+        flex-direction: row;
+      }
+
+}

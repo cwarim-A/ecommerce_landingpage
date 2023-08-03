@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin: 0px 70px;
+}
+.Logo > h1{
+    cursor: pointer;
+} 
+h1 > span{
+    color: blue;
+}
+
+
+
+
+.header > .cart {
+   display: flex;
+   cursor: pointer;
+   position: relative;
+} 
+.header > .cart > span{
+    width: 21px;
+    height: 21px;
+    background-color: blue;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    border-radius: 50%; 
+    position: absolute;
+    top: 0.01%;
+    right: 1%;
+}
+
+
