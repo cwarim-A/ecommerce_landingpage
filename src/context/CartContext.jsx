@@ -1,4 +1,7 @@
-import {createContext,useContext,useState} from "react";
+import {createContext,useContext,useEffect,useState} from "react";
+import { toast } from 'react-toastify';
+
+
 
 const CartContext = createContext();
 
@@ -24,6 +27,9 @@ const CartProvider = ({children})=>{
             return [...prevCartItems,{...product,quantity: 1}]
 
         });
+        toast.success('Product added to cart!', {
+          position: toast.POSITION.TOP_CENTER
+        });
     }
 
     const incrementQuantity = (productId) => {
@@ -45,15 +51,27 @@ const CartProvider = ({children})=>{
       };
     
     const removeFromCart = (productId)=>{
-        setCartItems((prevCartItems)=> prevCartItems.filter((item)=> item.id !== productId))
+        setCartItems((prevCartItems)=> prevCartItems.filter((item)=> item.id !== productId));
+        toast.error('Product removed from cart!', {
+          position: toast.POSITION.TOP_RIGHT
+        }); 
+
     }
 
+    const removeFromCartAfterCheckout = (productId)=>{
+      setCartItems((prevCartItems)=> prevCartItems.filter((item)=> item.id !== productId));
 
+  }
+
+
+    useEffect(()=>{
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
 
 
     return (
-        <CartContext.Provider value={{ cartItems,addToCart,decreaseQuantity,removeFromCart,incrementQuantity }}> 
+        <CartContext.Provider value={{ cartItems,addToCart,decreaseQuantity,removeFromCart,incrementQuantity,removeFromCartAfterCheckout }}> 
         {children}
         </CartContext.Provider>
     )

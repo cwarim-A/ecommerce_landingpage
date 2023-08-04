@@ -1,13 +1,17 @@
-// import Card from "../UI/Card";
+
+import { useState } from "react";
 import { useCart } from "../context/CartContext"
-// import {MdOutlineDeleteOutline} from "react-icons/md"
+
 import "./Cart.css"
-import {FaTimes} from "react-icons/fa"
+import Checkout from "./Checkout";
+import { toast } from 'react-toastify';
+
 
 
 
 const Cart = () => {
-    const {cartItems,decreaseQuantity,removeFromCart,incrementQuantity} = useCart();
+    const {cartItems,decreaseQuantity,removeFromCart,incrementQuantity,removeFromCartAfterCheckout} = useCart();
+    const [showCheckoutForm, setShowCheckoutForm] = useState(false);
 
     const getTotalAmount = () => {
       let total = 0;
@@ -16,6 +20,18 @@ const Cart = () => {
       });
       return total;
     };
+
+    const handleCheckout = ()=>{
+      setShowCheckoutForm(false)
+      cartItems.forEach((item) => removeFromCartAfterCheckout(item.id));
+      toast.success('Check out Complete!', {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+
+    const handleCheckoutClick = ()=>{
+          setShowCheckoutForm(true);
+    }
   
 
   return (
@@ -40,8 +56,10 @@ const Cart = () => {
       <div className="checkout-card">
         <h3>Total Price:</h3>
         <p>₦{getTotalAmount()}</p>
-        <button>Checkout</button>
+        <button  onClick={handleCheckoutClick}>Checkout</button>
       </div>
+
+      {showCheckoutForm && <Checkout showCheckoutForm={showCheckoutForm} setShowCheckoutForm={setShowCheckoutForm} totalAmount={getTotalAmount()} onCheckout={handleCheckout}/>}
     </div>
   )
 }
